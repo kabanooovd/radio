@@ -12,6 +12,6 @@ export const TextField: React.FC<ITextField> = (props) => {
   const { signtext } = props
   return <TextFieldContainer>
     {signtext && <Sign>{signtext}</Sign>}
-    <StyledTextField {...props}/>
+    <StyledTextField {...props} />
   </TextFieldContainer>
 }

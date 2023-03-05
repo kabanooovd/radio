@@ -12,6 +12,12 @@ export const CONTROL = {
   SPH: "salary-per-hour",
 }
 
+export const FIELD_SIGN = {
+  "salary-per-month": "₽",
+  "salary-per-day": "₽ в день",
+  "salary-per-hour": "₽ в час",
+} 
+
 export interface IOptions {
   id: string;
   label: string;

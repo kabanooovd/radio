@@ -6,6 +6,7 @@ import { String } from "./string";
 import { TextField } from "./text-field";
 import { Icon } from "./icon";
 import { Hint } from "./hint";
+import { Notificator } from "./notificator";
 
 
 export {
@@ -17,4 +18,5 @@ export {
   TextField,
   Icon,
   Hint,
+  Notificator,
 }

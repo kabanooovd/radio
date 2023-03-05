@@ -11,6 +11,7 @@ export const Flex = styled.div<{
   wrap?: string;
   width?: string;
   height?: string;
+  background?: string;
 }>`
   width: ${({width}) => width || "auto"};
   height: ${({height}) => height || "auto"};
@@ -23,4 +24,5 @@ export const Flex = styled.div<{
 	padding: ${({padding}) => padding || "0"};
   border-radius: ${({brad}) => brad || "0"};
   flex-wrap: ${({wrap}) => wrap || "nowrap"};
+  background: ${({background}) => background || "#FFFFFF"};
 `

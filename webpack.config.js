@@ -15,7 +15,7 @@ module.exports = (_, props) => {
       static: {
         directory: path.join(__dirname, "dist"),
       },
-      port: 3000
+      port: 3000,
     },
     module: {
       rules: [
@@ -61,36 +61,8 @@ module.exports = (_, props) => {
       path: path.resolve(__dirname, 'dist'),
     },
     plugins: [
-      // props.mode === "production"
-      //   ? new ModuleFederationPlugin({
-      //       name: "ea_mui_spa",
-      //       filename: "remoteEntry.js",
-      //       exposes: {
-      //         "./EAProvider": "./src/containers/EAProvider",
-      //         "./EARoutes": "./src/routes",
-      //         "./EAApp": "./src/app",
-      //       },
-      //       shared: {
-      //         react: {
-      //           singleton: true,
-      //           requiredVersion: deps.react,
-      //           eager: true,
-      //         },
-      //         "react-dom": {
-      //           singleton: true,
-      //           requiredVersion: deps["react-dom"],
-      //           eager: true,
-      //         },
-      //         "react-router-dom": {
-      //           singleton: true,
-      //           requiredVersion: deps["react-router-dom"],
-      //           eager: true,
-      //         },
-      //       },
-      //     })
-      //   : () => {},
       new HtmlWebpackPlugin({
-        template: '/public/index.html'
+        template: '/public/index.html',
       }),
       new MiniCssExtractPlugin({
         ignoreOrder: true,
@@ -109,6 +81,6 @@ module.exports = (_, props) => {
         React: "react",
       }),
       new ESLintPlugin(),
-    ]
+    ],
   }
 };

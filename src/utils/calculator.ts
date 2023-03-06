@@ -1,22 +1,18 @@
-import { CONTROL } from "../config";
-
 export class Calculator {
-  // constructor(
-  //   public salaryValue: string,
-  //   public isNdfl: boolean,
-  //   public control: string | null,
-  // ) {
-  //   this.salaryValue = salaryValue
-  //   this.isNdfl = isNdfl
-  //   this.control = control
-  // }
-
-  static calcValues(salaryValue: number, isNdfl: boolean) {
+  static calcValues(salaryValue: number, isNdfl: boolean): {amount: string, percentValue: string, fullAmount: string} {
+    const taxAmount = Number((salaryValue / 100 * 13).toFixed(0))
     if (isNdfl) {
-      const taxAmount = salaryValue / 100 * 13
-      return `${salaryValue + taxAmount}`
+      return {
+        amount: `${salaryValue.toFixed(0)} ₽`,
+        percentValue: `${taxAmount.toFixed(0)} ₽`,
+        fullAmount: `${(salaryValue + taxAmount).toFixed(0)} ₽`,
+      }
     }
-    return `${salaryValue}`
+    return {
+      amount: `${(salaryValue - taxAmount).toFixed(0)} ₽`,
+      percentValue: `${taxAmount.toFixed(0)} ₽`,
+      fullAmount: `${salaryValue.toFixed(0)} ₽`,
+    }
   }
 
 }

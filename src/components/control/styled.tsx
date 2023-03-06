@@ -10,6 +10,7 @@ export const ControlWrapper = styled.div`
   border-radius: 8px;
 
   position: relative;
+  width: 350px;
 `
 
 export const Title = styled.div`

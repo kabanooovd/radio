@@ -5,9 +5,9 @@ export const Sign = styled.div`
   position: absolute;
   right: 10px;
   top: 50%;
-  -webkit-transform: translate(-50%,-50%);
-  -ms-transform: translate(-50%,-50%);
-  transform: translate(-50%,-50%);
+  -webkit-transform: translate(0,-50%);
+  -ms-transform: translate(0,-50%);
+  transform: translate(0,-50%);
 `
 
 export const TextFieldContainer = styled.div`

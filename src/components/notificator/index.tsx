@@ -1,6 +1,7 @@
-import { Calculator } from "../../utils/calculator"
-import { IState } from "../control"
-import { Flex } from "../flex"
+import { Alert } from "react-bootstrap";
+import { Calculator } from "../../utils/calculator";
+import { IState } from "../control";
+import { Amount, Span } from "./styled";
 
 interface INotificator {
   values: IState
@@ -8,15 +9,18 @@ interface INotificator {
 
 export const Notificator: React.FC<INotificator> = (props) => {
   const { values } = props
-  return <Flex direction={"column"} background={"#f7ecc1"} padding={"10px"}>
+
+  const {fullAmount, amount, percentValue} = Calculator.calcValues(+values.salaryValue, values.isNdfl)
+
+  return <Alert variant={"warning"}>
     <div>
-      {Calculator.calcValues(+values.salaryValue, values.isNdfl)} ₽ сотрудник будет получать на руки
+      <Amount>{amount}</Amount>{" "}<Span>сотрудник будет получать на руки</Span>
     </div>
     <div>
-      2323 ₽ НДФЛ, 13% от оклада
+      <Amount>{percentValue}</Amount>{" "}<Span>НДФЛ, 13% от оклада</Span>
     </div>
     <div>
-      2323 ₽ за сотрудника в месяц
+      <Amount>{fullAmount}</Amount>{" "}<Span>за сотрудника в месяц</Span>
     </div>
-</Flex>
+  </Alert>
 }

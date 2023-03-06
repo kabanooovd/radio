@@ -40,7 +40,7 @@ export const Control: React.FC<IControl> = (props) => {
       }}
       onSubmit={onSubmit}
       initialValues={{ control: null, isNdfl: false, salaryValue: "" }}
-      render={({ handleSubmit, form: { mutators: { setValue } }, submitting, pristine, values }) => {
+      render={({ handleSubmit, form: { mutators: { setValue } }, values }) => {
         
         const isMROT = values.control === CONTROL.MS
         const isSalaryPerMonth = values.control === CONTROL.SPM
@@ -48,7 +48,7 @@ export const Control: React.FC<IControl> = (props) => {
         const onHandleFieldValue = (e: React.ChangeEvent<HTMLInputElement>) => {
           const regExpOnlyDigits = /^[0-9\b]+$/;
           const { value } = e.currentTarget
-          if ((regExpOnlyDigits.test(value) || value === "") && value.length < 20) {
+          if ((regExpOnlyDigits.test(value) || value === "") && value.length < 12) {
             setValue("salaryValue", value)
           }
         }
@@ -67,29 +67,24 @@ export const Control: React.FC<IControl> = (props) => {
                 </Flex>}
               </Flex>
             })}
-            {!isMROT && <><Flex margin={"10px 0 10px 15px"}>
-              <String color={theme.GREY} size={"14px"}>Указать с НДФЛ</String>
-              <Flex margin={"0 0 0 15px"}>
-                <ToggleField formItem={"isNdfl"} />
+            {!isMROT && <>
+              <Flex margin={"10px 0 10px 15px"}>
+                <String color={theme.GREY} size={"14px"}>Указать с НДФЛ</String>
+                <Flex margin={"0 0 0 15px"}>
+                  <ToggleField formItem={"isNdfl"} />
+                </Flex>
               </Flex>
-            </Flex>
-            {values.control && <Flex margin={"10px 0 10px 15px"}>
-              <TextField 
-                name={"salaryValue"} 
-                component={"input"}
-                onChange={onHandleFieldValue}
-                type={"text"}
-                signtext={FIELD_SIGN[values.control as keyof typeof FIELD_SIGN]}
-              />
-            </Flex>}
+              {values.control && <Flex margin={"10px 0 10px 15px"}>
+                <TextField 
+                  name={"salaryValue"} 
+                  component={"input"}
+                  onChange={onHandleFieldValue}
+                  type={"text"}
+                  signtext={FIELD_SIGN[values.control as keyof typeof FIELD_SIGN]}
+                />
+              </Flex>}
             </>}
             {values.control && isSalaryPerMonth && values.salaryValue && <Notificator values={values} />}
-            <Button 
-              type={"submit"}
-              disabled={submitting || pristine}
-            >
-              Submit
-            </Button>
           </form>
         )}}
     />

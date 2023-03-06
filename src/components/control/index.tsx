@@ -1,9 +1,7 @@
 import React from "react"
-import { Button } from "react-bootstrap"
 import { Form as FinalForm } from 'react-final-form'
 import { CONTROL, FIELD_SIGN, IOptions } from "../../config"
 import { theme } from "../../theme"
-import { Calculator } from "../../utils/calculator"
 import { Flex } from "../flex"
 import { Hint } from "../hint"
 import { Notificator } from "../notificator"

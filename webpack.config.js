@@ -62,7 +62,7 @@ module.exports = (_, props) => {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        template: '/public/index.html',
+        template: path.join(__dirname, './public/index.html'),
       }),
       new MiniCssExtractPlugin({
         ignoreOrder: true,
